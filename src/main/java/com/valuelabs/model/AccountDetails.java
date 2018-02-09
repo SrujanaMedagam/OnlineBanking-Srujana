@@ -57,6 +57,7 @@ public class AccountDetails implements Serializable{
 		return totalAmount;
 	}
 	public void setTotalAmount(double totalAmount) {
+		System.out.println("dklfjsk"); 
 		this.totalAmount = totalAmount;
 	}
 	public void setStatusOfAccount(String statusOfAccount) {
