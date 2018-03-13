@@ -13,6 +13,7 @@ public interface LoginDao {
 	public List getProfile( String accountNumber);
 	 public boolean profileUpdate( String accountNumber, String address, String emailId, int phoneNumber,
 			String panNumber, int aadharNumber);
+	//List checkLoginCredentials(String username, String password, String startDate, String endDate);
 
 	
 	

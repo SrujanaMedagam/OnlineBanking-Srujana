@@ -45,7 +45,6 @@ public class AccountTransactionDetails {
 	
 	
 	public String getAccountNumber() {
-		System.out.println("breanch 18.1");
 		return accountNumber;
 	}
 	public void setAccountNumber(String accountNumber) {

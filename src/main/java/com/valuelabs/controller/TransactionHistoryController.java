@@ -7,12 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.valuelabs.pdfGenerator.PdfGenerator;
 import com.valuelabs.service.LoginService;
 import com.valuelabs.service.TransactionHistoryService;
 
 @Controller
 @RequestMapping("/history")
 public class TransactionHistoryController {
+	@Autowired
+	PdfGenerator pdfGenerator;
 	@Autowired(required = true)
 	TransactionHistoryService transactionHistoryService;
 
@@ -48,6 +52,26 @@ public class TransactionHistoryController {
 			accountDetails = (String) it.next();
 		}
 		List transactionHistory = transactionHistoryService.transactionHistory(accountDetails);
+		return transactionHistory;
+	}
+	
+	@RequestMapping("/showData")
+	public @ResponseBody List showData(@RequestParam("username") String username,
+			@RequestParam("password") String password, @RequestParam("startDate") String startDate,
+			@RequestParam("endDate") String endDate) {
+		String accountDetails = "";
+		List list = loginService.checkUserAccountNumber(username, password);
+		Iterator it = list.iterator();
+		while (it.hasNext()) {
+			accountDetails = (String) it.next();
+		}
+		System.out.println("Show Date");
+		
+		List transactionHistory = transactionHistoryService.transactionHistory(accountDetails,startDate,endDate);
+		
+		//have to write Code here for Pdf file download
+		
+		pdfGenerator.main(transactionHistory);
 		return transactionHistory;
 	}
 }
