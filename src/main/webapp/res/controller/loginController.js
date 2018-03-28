@@ -778,7 +778,7 @@ app.controller('transactionHistoryController', function($scope, $location,
 		});
 	};
 });
-//TransactionDataController
+// TransactionDataController
 app.controller('TransactionDataController', function($scope, $location, $http,
 		$rootScope, filterFilter) {
 	$scope.onTransferfunds = function() {
@@ -847,15 +847,14 @@ app.controller('showTransactionHistoryDetailsController', function($scope,
 		var password = $scope.password;
 		var startDate = $scope.startDate;
 		var endDate = $scope.endDate;
-		/*$http({
-			method : "GET",
-		    url : "/history/showData",
-		    data: {startDate: startDate,
-		    	endDate: endDate}
-		    
-		}).then(function(response){
-			
-		});*/
+		/*
+		 * $http({ method : "GET", url : "/history/showData", data: {startDate:
+		 * startDate, endDate: endDate}
+		 * 
+		 * }).then(function(response){
+		 * 
+		 * });
+		 */
 
 		$.ajax({
 			type : "GET",
@@ -928,66 +927,33 @@ app.controller('myProfileController', function($scope, $location, $http,
 	}
 });
 
-/*app.controller('myProfileUpdateController', function($scope, $location, $http,
- $rootScope) {
+/*
+ * app.controller('myProfileUpdateController', function($scope, $location,
+ * $http, $rootScope) {
+ * 
+ * var username = $scope.username; var password = $scope.password; $http({
+ * method : "GET", url : "/profile/myProfile", params : { username : username,
+ * password : password } }).then(function mySucces(response) { alert(response);
+ * var check = $scope.profiledata = response.data;
+ *  }, function myError(response) { alert("Error" + check); });
+ * 
+ * $scope.onUpdate = function() { var username = $scope.username; var password =
+ * $scope.password; var address = $scope.address; var emailId = $scope.emailId;
+ * var phoneNumber = $scope.phoneNumber; var panNumber = $scope.panNumber; var
+ * aadharNumber = $scope.aadharNumber; $ajax({ method : "GET", url :
+ * "/profile/update", data : { "username" : username, "password" : password,
+ * "address" : address, "emailId" : emailId, "phoneNumber" : phoneNumber,
+ * "panNumber" : panNumber, "aadharNumber" : aadharNumber }, dataType : 'json',
+ * timeout : 100000, beforeSend : function(xhr) { xhr.setRequestHeader("Accept",
+ * "application/json"); xhr.setRequestHeader("Content-Type",
+ * "application/json;charset=utf-8"); }, success : function(response) { if
+ * (response == "passed") { window.location.assign("/login/#/profileUpdate"); } },
+ * error : function(e, status) { alert("not Updated"); } }); }; });
+ */
 
- var username = $scope.username;
- var password = $scope.password;
- $http({
- method : "GET",
- url : "/profile/myProfile",
- params : {
- username : username,
- password : password
- }
- }).then(function mySucces(response) {
- alert(response);
- var check = $scope.profiledata = response.data;
-
- }, function myError(response) {
- alert("Error" + check);
- });
-
- $scope.onUpdate = function() {
- var username = $scope.username;
- var password = $scope.password;
- var address = $scope.address;
- var emailId = $scope.emailId;
- var phoneNumber = $scope.phoneNumber;
- var panNumber = $scope.panNumber;
- var aadharNumber = $scope.aadharNumber;
- $ajax({
- method : "GET",
- url : "/profile/update",
- data : {
- "username" : username,
- "password" : password,
- "address" : address,
- "emailId" : emailId,
- "phoneNumber" : phoneNumber,
- "panNumber" : panNumber,
- "aadharNumber" : aadharNumber
- },
- dataType : 'json',
- timeout : 100000,
- beforeSend : function(xhr) {
- xhr.setRequestHeader("Accept", "application/json");
- xhr.setRequestHeader("Content-Type",
- "application/json;charset=utf-8");
- },
- success : function(response) {
- if (response == "passed") {
- window.location.assign("/login/#/profileUpdate");
- }
- },
- error : function(e, status) {
- alert("not Updated");
- }
- });
- };
- });*/
-
-/*app.controller('myProfileUpdateController', function($scope, $location, $http,
- $rootScope) {
-
- });*/
+/*
+ * app.controller('myProfileUpdateController', function($scope, $location,
+ * $http, $rootScope) {
+ * 
+ * });
+ */

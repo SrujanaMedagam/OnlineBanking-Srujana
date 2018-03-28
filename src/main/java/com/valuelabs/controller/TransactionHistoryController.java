@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.valuelabs.pdfGenerator.PdfGenerator;
 import com.valuelabs.service.LoginService;
 import com.valuelabs.service.TransactionHistoryService;
@@ -17,6 +18,8 @@ import com.valuelabs.service.TransactionHistoryService;
 public class TransactionHistoryController {
 	@Autowired
 	PdfGenerator pdfGenerator;
+	
+	
 	@Autowired(required = true)
 	TransactionHistoryService transactionHistoryService;
 
@@ -56,6 +59,7 @@ public class TransactionHistoryController {
 	}
 	
 	@RequestMapping("/showData")
+	@JsonManagedReference
 	public @ResponseBody List showData(@RequestParam("username") String username,
 			@RequestParam("password") String password, @RequestParam("startDate") String startDate,
 			@RequestParam("endDate") String endDate) {
@@ -69,9 +73,10 @@ public class TransactionHistoryController {
 		
 		List transactionHistory = transactionHistoryService.transactionHistory(accountDetails,startDate,endDate);
 		
+		List profileData = loginService.getProfileData(accountDetails);
 		//have to write Code here for Pdf file download
 		
-		pdfGenerator.main(transactionHistory);
+		pdfGenerator.main(transactionHistory,profileData);
 		return transactionHistory;
 	}
 }

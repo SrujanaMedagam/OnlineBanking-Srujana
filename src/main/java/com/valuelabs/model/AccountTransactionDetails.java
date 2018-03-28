@@ -11,6 +11,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table
 @Service("accountTransactionDetails")
@@ -56,6 +58,7 @@ public class AccountTransactionDetails {
 	public void setTransactionDate(String transactionDate) {
 		this.transactionDate = transactionDate;
 	}
+
 	public double getAmount() {
 		return amount;
 	}
