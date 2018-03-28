@@ -16,5 +16,11 @@ public class TransactionHistoryServiceImpl implements TransactionHistoryService 
 		List listofRecords = TransactionHistoryDao.transactionHistory(accountDetails);
 		return listofRecords;
 	}
+	
+	@Override
+	public List transactionHistory(String accountDetails,String startDate,String endDate) {
+		List listofRecords = TransactionHistoryDao.transactionHistory(accountDetails,startDate,endDate);
+		return listofRecords;
+	}
 
 }

@@ -1,5 +1,6 @@
 package com.valuelabs.service;
 
+import java.sql.Date;
 import java.util.List;
 
 public interface LoginService {
@@ -25,5 +26,7 @@ public interface LoginService {
 
 	public boolean getProfileUpdate(String accountNumber, String address, String emailId, int phoneNumber,
 			String panNumber, int aadharNumber);
+
+	//List checkUserAccountNumberWithSelectedData(String username, String password, String startDate, String endDate);
 
 }

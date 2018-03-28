@@ -1,5 +1,6 @@
 package com.valuelabs.service;
 
+import java.sql.Date;
 import java.util.Iterator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,12 @@ public class LoginServiceImpl implements LoginService {
 		List list = loginDao.checkLoginCredentials(username, password);
 		return list;
 	}
+
+	/*@Override
+	public List checkUserAccountNumberWithSelectedData(String username, String password,String startDate,String endDate) {
+		List list = loginDao.checkLoginCredentials(username, password,startDate,endDate);
+		return list;
+	}*/
 
 	public boolean newUserPermission(String accountNumber, String accountName, String username, String password,
 			String address, String emailId, int phoneNumber, String panNumber, int aadharNumber, String accountType,
@@ -117,5 +124,7 @@ public class LoginServiceImpl implements LoginService {
 		// loginDao.profileUpdate(con.getConnection(),accountNumber,address,emailId,phoneNumber,panNumber,aadharNumber);
 		return loginDao.profileUpdate(accountNumber, address, emailId, phoneNumber, panNumber, aadharNumber);
 	}
+
+	
 
 }

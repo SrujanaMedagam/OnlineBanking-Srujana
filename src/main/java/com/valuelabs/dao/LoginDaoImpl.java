@@ -30,6 +30,12 @@ public class LoginDaoImpl implements LoginDao {
 		String hql = "Select user.accountNumber from LoginDetails user where user.username=? and user.password=?";
 		return (List) hibernateTemplate.find(hql, username, password);
 	}
+	/*@Override
+	public List checkLoginCredentials(String username, String password,String startDate, String endDate) {
+		String hql = "Select user.accountNumber from LoginDetails user where user.username=? and user.password=?";
+		
+		return (List) hibernateTemplate.find(hql, startDate, endDate);
+	}*/
 
 	@Override
 	public boolean newUserPermissionInfo(LoginDetailsBean loginDetailsBean, AccountDetailsBean accountDetailsBean) {
