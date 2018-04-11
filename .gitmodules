@@ -1,3 +1,6 @@
 [submodule "09/02/2018"]
 	path = 09/02/2018
 	url = https://github.com/SrujanaMedagam/OnlineBanking-Srujana.git
+[submodule "test"]
+	path = test
+	url = https://github.com/SrujanaMedagam/OnlineBanking-Srujana.git

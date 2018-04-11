@@ -214,7 +214,7 @@ smallBold));
 	}*/
 
 	private static void createTable(Document document, java.util.List transactionHistory) throws DocumentException {
-		PdfPTable table = new PdfPTable(6);
+		PdfPTable table = new PdfPTable(5);
 
 		// t.setBorderColor(BaseColor.GRAY);
 		// t.setPadding(4);
@@ -235,9 +235,9 @@ smallBold));
 		c1 = new PdfPCell(new Phrase("Amount"));
 		c1.setHorizontalAlignment(Element.ALIGN_CENTER);
 		table.addCell(c1);
-		c1 = new PdfPCell(new Phrase("BalanceAmount"));
+		/*c1 = new PdfPCell(new Phrase("BalanceAmount"));
 		c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-		table.addCell(c1);
+		table.addCell(c1);*/
 		c1 = new PdfPCell(new Phrase("Remarks"));
 		c1.setHorizontalAlignment(Element.ALIGN_CENTER);
 		table.addCell(c1);
@@ -250,8 +250,9 @@ smallBold));
 			table.addCell(at.getAccountNumber());
 			table.addCell(at.getTransactionDate());
 			table.addCell(at.getTransactionType());
-			table.addCell(at.getToAccount());
-		//	table.addCell(at.getBalanceAmount());
+			 table.addCell(String.valueOf(at.getAmount()));
+			//table.addCell(at.getToAccount());
+			//table.addCell(at.getBalanceAmount());
 			table.addCell(at.getRemarks());
 			/*
 			 * table.addCell("2.1"); table.addCell("2.2"); table.addCell("2.3");
